@@ -12,16 +12,14 @@ function App() {
     });
   }, []);
 
-  async function handleAddRepository() {
-    const response = await api.post("repositories", {
-      title: `Novo Repositório ${Date.now()}`,
+  function handleAddRepository() {
+    api.post("repositories", {
+      title: `Mais Repositório ${Date.now()}`,
       url: "http://github.com/...",
       techs: []
+    }).then(response => {
+      setRepositories([...repositories, response.data])
     });
-
-    const repository = response.data;
-
-    setRepositories([...repositories, repository]);
   }
 
   async function handleRemoveRepository(id) {
