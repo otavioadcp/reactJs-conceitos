@@ -14,7 +14,7 @@ function App() {
 
   function handleAddRepository() {
     api.post("repositories", {
-      title: `Mais Repositório ${Date.now()}`,
+      title: `Novo Repositório ${Date.now()}`,
       url: "http://github.com/...",
       techs: []
     }).then(response => {
